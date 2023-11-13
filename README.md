@@ -131,7 +131,7 @@ Now, you can push your local repository to GitHub:
    - createSlice will contain name, initialState and reducers
    - we need to export default appSlice.reducer and action from reducer from appSlice.actions
 
-```
+```appSlice.js
   import { createSlice } from "@reduxjs/toolkit";
 
   const appSlice = createSlice({
@@ -154,7 +154,7 @@ Now, you can push your local repository to GitHub:
    - we will have reducer inside createSlice
    - reducer will contain app: appSlice
 
-```
+```store.js
   import { configureStore } from "@reduxjs/toolkit";
   import appSlice from "./appSlice";
 
@@ -171,7 +171,8 @@ Now, you can push your local repository to GitHub:
    - we will use a component provider which comes from react-redux package to provide store to the app
    - wrap app components within provider component and pass store to it and we need to import store from utils folder
 
-```
+<pre>
+```app.js
   import { Provider } from "react-redux";
   import Head from "./components/Head";
   import Body from "./components/Body";
@@ -190,6 +191,7 @@ Now, you can push your local repository to GitHub:
 
   export default App;
 ```
+</pre>
 
 ### Check whether Store is properly setup or not
  - We can check it with help of useSelector, or
