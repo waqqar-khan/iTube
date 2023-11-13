@@ -115,3 +115,89 @@ Now, you can push your local repository to GitHub:
 - Go back to your GitHub repository in your web browser and refresh, and you should see your code there.
 
 ## That's it! Your React project is now on GitHub. Remember to push changes to GitHub whenever you make updates to your project.
+
+
+## Redux Toolkit - for maintaining Global State
+- npm i @reduxjs/toolkit
+- npm i react-redux
+
+
+### Redux Store Creation 
+- Create a utils folder in store
+- create a store file inside utils folder
+   - configureStore api from @reduxjs/toolkit
+- create a slice by first creating file appSlice inside utils folder
+   - createSlice api from @reduxjs/toolkit
+   - createSlice will contain name, initialState and reducers
+   - we need to export default appSlice.reducer and action from reducer from appSlice.actions
+
+```
+  import { createSlice } from "@reduxjs/toolkit";
+
+  const appSlice = createSlice({
+      name: "app",
+      initialState: {
+          isMenuOpen: true,
+      },
+      reducers: {
+          toggleMenu: (state) => {
+              state.isMenuOpen = !state.isMenuOpen;
+          },
+      },
+  })
+
+  export const {toggleMenu} = appSlice.actions;
+  export default appSlice.reducer;
+```
+
+- import slice in the store
+   - we will have reducer inside createSlice
+   - reducer will contain app: appSlice
+
+```
+  import { configureStore } from "@reduxjs/toolkit";
+  import appSlice from "./appSlice";
+
+  const store = configureStore({
+      reducer: {
+          app: appSlice,
+      }
+  })
+
+  export default store;
+```
+
+- provide store to the app 
+   - we will use a component provider which comes from react-redux package to provide store to the app
+   - wrap app components within provider component and pass store to it and we need to import store from utils folder
+
+```
+  import { Provider } from "react-redux";
+  import Head from "./components/Head";
+  import Body from "./components/Body";
+  import store from "./utils/Store";
+
+  function App() {
+    return (
+      <div>
+        <Provider store={store}>
+          <Head />
+          <Body />
+        </Provider>
+      </div>
+    );
+  }
+
+  export default App;
+```
+
+### Check whether Store is properly setup or not
+ - We can check it with help of useSelector, or
+ - We can check by going to our redux dev tools extension and check state
+
+### General Steps Involve In Store Creation
+ - We install redux toolkit
+ - We install react redux
+ - We created store
+ - We created slice
+ - We provided store to app
