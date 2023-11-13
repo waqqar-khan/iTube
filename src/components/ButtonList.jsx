@@ -1,14 +1,11 @@
 import Button from "./Button";
 
 const ButtonList = () => {
+    const categories = ["All","New","Music","Comedy","Cricket","Gaming"]
     return (
         <div className="flex">
-            <Button name="All" />
-            <Button name="New" />
-            <Button name="Music" />
-            <Button name="Comedy" />
-            <Button name="Cricket" />
-            <Button name="Gaming" />
+            {categories.map((category)=><Button key={category} name={category} />)}
+            
         </div>
     )
 }

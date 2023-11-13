@@ -73,7 +73,7 @@ Replace "Your Name" and "your.email@example.com" with your GitHub username and e
 
 ### Step 2: Create a new repository on GitHub
 
-- Go to GitHub[https://github.com/].
+- Go to [Github](https://github.com/).
 - Log in to your account.
 - Click on the "+" sign in the top right corner and select "New repository."
 - Fill in the repository name, description, and other details.

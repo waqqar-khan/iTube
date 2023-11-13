@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 const Button = ({ name }) => {
   return (
@@ -9,7 +9,7 @@ const Button = ({ name }) => {
 };
 
 Button.propTypes = {
-    name: PropTypes.string.isRequired,
-}
+  name: PropTypes.string.isRequired,
+};
 
 export default Button;
